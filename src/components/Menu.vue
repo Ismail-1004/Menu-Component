@@ -1,7 +1,7 @@
 <template>
   <nav class="menu">
-    <div class="menu__logo d-flex">
-      <img src="@/assets/logo.png" alt="logo" class="menu__logo-img" v-show="logo">
+    <div class="menu__logo">
+      <img src="" alt="logo" class="menu__logo-img" v-show="logo">
       <slot name="primary">
       </slot>
     </div>
@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .menu {
   display: flex;
   justify-content: space-between;
@@ -36,14 +36,6 @@ export default {
     &-img {
       width: 50px;
       margin-right: 10px;
-    }
-  }
-
-  &__list {
-    &-item {
-      &:not(:last-child) {
-        margin-right: 10px;
-      }
     }
   }
 
@@ -64,10 +56,6 @@ export default {
         border: 1px solid red;
         color: red;
       }
-    }
-
-    &:hover {
-      background: rgba(128, 128, 128, 0.667);
     }
   }
 

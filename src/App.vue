@@ -4,30 +4,21 @@
       integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <Menu :logo="true">
+    <Menu :logo="false">
       <template v-slot:primary>
-        <ul class="menu__list d-flex">
-          <li class="menu__list-item">
-            <router-link to="/" class="menu__list-link standard"> More Apps </router-link>
-          </li>
-          <li class="menu__list-item">
-            <router-link to="/" class="menu__list-link standard"> Games </router-link>
-          </li>
-        </ul>
+        <Flex>
+          <MenuButton>
+            <template v-slot:title> Menu </template>
+          </MenuButton>
+
+          <MenuButton>
+            <template v-slot:title> More Apps </template>
+          </MenuButton>
+        </Flex>
       </template>
 
       <template v-slot:secondary>
-        <ul class="menu__list d-flex">
-          <li class="menu__list-item standard__icon">
-            <router-link to=""> <i class="fa-sharp fa-solid fa-chart-simple"></i> </router-link>
-          </li>
-          <li class="menu__list-item standard__icon">
-            <router-link to=""> <i class="fa-solid fa-user"></i> </router-link>
-          </li>
-          <li class="menu__list-item standard__icon danger">
-            <i class="fa-solid fa-right-from-bracket"></i>
-          </li>
-        </ul>
+        <MenuList />
       </template>
     </Menu>
   </div>
@@ -35,23 +26,17 @@
 
 <script>
 import Menu from './components/Menu.vue';
+import MenuButton from './components/MenuButton.vue';
+import MenuList from './components/MenuList.vue'
+import Flex from './components/Flex.vue'
 
 export default {
   name: 'App',
   components: {
-    Menu
+    Menu,
+    MenuButton,
+    MenuList,
+    Flex
   }
 }
 </script>
-
-<style lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-  box-sizing: border-box;
-
-  font-family: sans-serif;
-}
-</style>
